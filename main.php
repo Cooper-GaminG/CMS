@@ -47,6 +47,8 @@ Read = SELECT Query
 Update= UPDATE Query
 Delete = DELETE Query
 
+test test test
+
 ARRAY = in principe een LIJST
 -->
 
