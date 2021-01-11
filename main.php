@@ -1,4 +1,7 @@
 <?php
+$pages= '';
+$sql= '';
+
 $servername = "localhost";
 $username = "mpg-cms";
 $password = "u8E6ZraShTHo0e0F";
@@ -40,6 +43,7 @@ try {
     <title>Document</title>
 </head>
 <body>
+
 <!-- 
 CRUD
 Create = INSERT Query
@@ -51,7 +55,7 @@ ARRAY = in principe een LIJST
 -->
 
 <?php
-
+if(is_array($pages))
   foreach( $pages as $page ) {
     //var_dump($user);
     echo "<p>" . $page->id . "</p>";
