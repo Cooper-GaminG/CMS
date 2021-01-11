@@ -47,7 +47,7 @@ Read = SELECT Query
 Update= UPDATE Query
 Delete = DELETE Query
 
-ARRAY = in principe een LIJST
+ARRAY = in principe een LIJST jfdvbddjjiin
 -->
 
 <?php
