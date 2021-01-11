@@ -28,9 +28,10 @@ try {
 
   //var_dump($users);
 
-} catch(PDOException $e) {
-  echo $sql . "<br>" . $e->getMessage();
 }
+//catch(PDOException $e) {
+  //echo $sql . "<br>" . $e->getMessage();
+//}
 ?>
 
 <!DOCTYPE html>
