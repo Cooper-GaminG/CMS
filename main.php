@@ -47,10 +47,6 @@ Read = SELECT Query
 Update= UPDATE Query
 Delete = DELETE Query
 
-test test test
-
-nog een test
-
 ARRAY = in principe een LIJST
 -->
 
