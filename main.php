@@ -52,6 +52,8 @@ ARRAY = in principe een LIJST
 
 <?php
 
+$pages='pages';
+
   foreach( $pages as $page ) {
     //var_dump($user);
     echo "<p>" . $page->id . "</p>";
