@@ -4,7 +4,7 @@ $sql= '';
 
 $servername = "localhost";
 $username = "mpg-cms";
-$password = "u8E6ZraShTHo0e0F";
+$password = "Kqqme9lcYmS8rmzH";
 $database = "mpg-cms";
 
 try {
@@ -18,7 +18,7 @@ try {
   $conn->exec($sql);
 */
 
-  $sql = "SELECT users.id, users.username pages.id pages.content pages.title
+  $sql = "SELECT users.id, users.username, pages.id, pages.content, pages.title
          FROM users INNER JOIN pages ON users.id=pages.author";
   // query voorbereiden
   $stmt = $conn->prepare($sql);
