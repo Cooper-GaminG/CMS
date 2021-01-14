@@ -29,6 +29,30 @@ try {
 
   $pages = $stmt->fetchAll();
 
+  //CREATES A NEW USER INTO THE 'users' DATABASE
+  //PASSWORD IS NOG NIET BEVEILIGD!!!
+  $username = 'Kevin';
+  $password = 'Kevin07!';
+  $email = 'kevin07@gmail.com';
+  $role = 'user';
+
+  $sql = 'INSERT INTO users(username, password, email, role) VALUES(:username, :password, :email, :role)';
+  $stmt = $conn->prepare($sql);
+  $stmt->execute(['username' => $username, 'password' => $password, 'email' => $email, 'role' => $role]);
+  echo 'User Created';
+
+  //$sql is bij mij $conn
+  //INSERT POST THROUGH CODE, THIS SHOULD HAPPEN; ECHO->POST ADDED AND IT SHOULD CREATE A NEW PAGE INSIDE THE DATABASE
+  $title = 'Post 3';
+  $content = 'This is post 3';
+  //maybe, every user gets his own author number, they fill that in and it'll show the same way as it shows the users username
+  $author = '';
+
+  $sql = 'INSERT INTO pages(title, content, author) VALUES(:title, :content, :author)';
+  $stmt = $conn->prepare($sql);
+  $stmt->execute(['title' => $title, 'content' => $content, 'author' => $author]);
+  echo 'Post Added';
+
   //var_dump($users);
 
 } catch(PDOException $e) {
