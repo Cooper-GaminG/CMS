@@ -81,15 +81,15 @@ try {
   // echo 'Post Deleted';
 
   //READ, search for posts through database
-  $search = '%t%';
-  $sql = 'SELECT * FROM pages WHERE title LIKE ?';
-  $stmt = $conn->prepare($sql);
-  $stmt->execute([$search]);
-  $pages = $stmt->fetchAll();
+  // $search = '%t%';
+  // $sql = 'SELECT * FROM pages WHERE title LIKE ?';
+  // $stmt = $conn->prepare($sql);
+  // $stmt->execute([$search]);
+  // $pages = $stmt->fetchAll();
 
-  foreach($pages as $page){
-    echo $page['title'] . '<br>' ;
-  }
+  // foreach($pages as $page){
+  //   echo $page['title'] . '<br>' ;
+  // }
 
   //var_dump($users);
 
