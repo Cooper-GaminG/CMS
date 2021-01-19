@@ -81,7 +81,7 @@ try {
   // echo 'Post Deleted';
 
   //READ, search for posts through database
-  // $search = '%t%';
+  // $search = '% %';
   // $sql = 'SELECT * FROM pages WHERE title LIKE ?';
   // $stmt = $conn->prepare($sql);
   // $stmt->execute([$search]);

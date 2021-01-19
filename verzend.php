@@ -4,29 +4,37 @@ if(isset($_POST["submit"])){
 
     $servername = "localhost";
     $username = "mpg-cms";
-    $password = "pAFvMPmbs5ssqRs2";
+    $password = 'Kqqme9lcYmS8rmzH';
     $database = "mpg-cms";
 
-    $sql = "INSERT INTO users (username, password, email, role)
-    VALUES ('1', 'Wereld', 'Hallo')";
+    // $sql = "INSERT INTO users (username, password, email, role)
+    // VALUES (:username, :password, :email, :role)";
 
     try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $conn->prepare("INSERT INTO users (username, password, email, role)
-    VALUES (:username, :password, :email, :role)");
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':role', $role);
+    //inserts into the users table inside the database
+    // $stmt = $conn->prepare("INSERT INTO users (username, password, email, role)
+    // VALUES (:username, :password, :email, :role)");
+    // $stmt->bindParam(':username', $username);
+    // $stmt->bindParam(':password', $password);
+    // $stmt->bindParam(':email', $email);
+    // $stmt->bindParam(':role', $role);
+
+    
   
     // insert a row
     $username = $_POST["username"];
-    $password = "random";
+    $password = $_POST["password"];
     $email = $_POST["email"];
     $role = "user";
+
+    $sql = 'INSERT INTO users(username, password, email, role) VALUES(:username, :password, :email, :role)';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute(['username' => $username, 'password' => $password, 'email' => $email, 'role' => $role]);
+    
     $stmt->execute();    
 
     echo "New record created successfully";
