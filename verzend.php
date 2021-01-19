@@ -25,17 +25,17 @@ if(isset($_POST["submit"])){
 
     
   
-    // insert a row
+    // creates a new user inside the database
     $username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
-    $role = "user";
+    $role = 'user';
 
     $sql = 'INSERT INTO users(username, password, email, role) VALUES(:username, :password, :email, :role)';
     $stmt = $conn->prepare($sql);
     $stmt->execute(['username' => $username, 'password' => $password, 'email' => $email, 'role' => $role]);
     
-    $stmt->execute();    
+      
 
     echo "New record created successfully";
 
