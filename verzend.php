@@ -37,7 +37,7 @@ if(isset($_POST["submit"])){
     
       
 
-    echo "New record created successfully";
+    echo "User successfully created";
 
     } catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
@@ -56,7 +56,7 @@ if(isset($_POST["submit"])){
 <?php
 
     if(isset($_POST["submit"])){
-        echo "<h1>Formulier is verzonden</h1>" . "<br>"; // . = concat = aan elkaar plakken
+        //echo "<h1>Formulier is verzonden</h1>" . "<br>"; // . = concat = aan elkaar plakken
 
         echo "<p>" . $_POST["username"] . "</p><br>";
         echo $_POST["email"];
