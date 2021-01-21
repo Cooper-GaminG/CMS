@@ -62,9 +62,13 @@ if(isset($_POST["submit"])){
         //echo "<h1>Formulier is verzonden</h1>" . "<br>"; // . = concat = aan elkaar plakken
 
         echo "<p>Welcome " . $_POST["username"] . "</p><br>";
+
     }
 
+    
 ?>
+
+
 
 
 </body>
