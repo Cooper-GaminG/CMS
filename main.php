@@ -103,6 +103,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href='main_style.css'>
 </head>
 <body>
 
@@ -116,7 +117,7 @@ Delete = DELETE Query
 ARRAY = in principe gewoon een LIJST
 -->
 
-<?php
+<!-- <?php
 // if(is_array($pages))
 //   foreach( $pages as $page ) {
 //     //var_dump($user);
@@ -126,7 +127,11 @@ ARRAY = in principe gewoon een LIJST
 //     echo "<p>" . $page->content . "</p>";
 //   }
 
-?>
+?> -->
+
+<h2>
+  <a class='register' href='form.php'>Register</a>
+</h2>
 
 
 </body>
