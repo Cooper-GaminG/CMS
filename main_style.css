@@ -1,5 +1,5 @@
 a.register{
-    padding: 25px;
+    padding: 10px;
     border: 25px black;
     margin: 10px;
     margin-left: 100px;
@@ -11,4 +11,19 @@ a.register:hover{
     text-decoration: underline;
     color: #ffffff;
     background-color: grey;
+}
+h4{
+    text-align: center;
+}
+
+a.contineu{
+    padding: 4px;
+    border: 5px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+a.contineu:hover{
+    text-decoration: underline;
+    color: darkblue;
 }

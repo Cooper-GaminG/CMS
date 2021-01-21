@@ -37,7 +37,9 @@ if(isset($_POST["submit"])){
     
       
 
-    echo "User successfully created";
+   // echo "User successfully created";
+
+    $_SESSION['username'] = $username;
 
     } catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
@@ -50,6 +52,7 @@ if(isset($_POST["submit"])){
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href='main_style.css'>
 </head>
 <body>
 
@@ -58,11 +61,11 @@ if(isset($_POST["submit"])){
     if(isset($_POST["submit"])){
         //echo "<h1>Formulier is verzonden</h1>" . "<br>"; // . = concat = aan elkaar plakken
 
-        echo "<p>" . $_POST["username"] . "</p><br>";
-        echo $_POST["email"];
+        echo "<p>Welcome " . $_POST["username"] . "</p><br>";
     }
 
 ?>
+
 
 </body>
 </html>
