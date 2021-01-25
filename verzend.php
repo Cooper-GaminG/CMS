@@ -63,12 +63,10 @@ if(isset($_POST["submit"])){
 
         echo "<p>Welcome " . $_POST["username"] . "</p><br>";
 
-    }
-
-    
+    }    
 ?>
-
-
+<a class='button' href='create.php'>Create Post</a>
+<a class='button' href='update.php'>Update Post</a>
 
 
 </body>

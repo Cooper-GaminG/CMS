@@ -16,7 +16,7 @@ h4{
     text-align: center;
 }
 
-a.contineu{
+/* a.contineu{
     padding: 4px;
     border: 5px;
     color: black;
@@ -26,4 +26,18 @@ a.contineu{
 a.contineu:hover{
     text-decoration: underline;
     color: darkblue;
+} */
+a.button{
+    padding: 10px;
+    border: 25px black;
+    margin: 10px;
+    margin-left: 100px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+a.button:hover{
+    text-decoration: underline;
+    color: #ffffff;
+    background-color: grey;
 }

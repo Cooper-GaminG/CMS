@@ -18,19 +18,19 @@ try {
   $conn->exec($sql);
 */
 
-  $sql = "SELECT users.id, users.username, pages.id, pages.content, pages.title
-         FROM users INNER JOIN pages ON users.id=pages.author";
-  // query voorbereiden
-  $stmt = $conn->prepare($sql);
-  // query uitvoeren
-  $stmt->execute();
-  // haal het resultaat op
-  $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
+  // $sql = "SELECT users.id, users.username, pages.id, pages.content, pages.title
+  //        FROM users INNER JOIN pages ON users.id=pages.author";
+  // // query voorbereiden
+  // $stmt = $conn->prepare($sql);
+  // // query uitvoeren
+  // $stmt->execute();
+  // // haal het resultaat op
+  // $result = $stmt->setFetchMode(PDO::FETCH_OBJ);
 
-  $pages = $stmt->fetchAll();
+  // $pages = $stmt->fetchAll();
 
-  //CREATES A NEW USER INTO THE 'users' DATABASE
-  //PASSWORD IS NOG NIET BEVEILIGD
+  // CREATES A NEW USER INTO THE 'users' DATABASE
+  // PASSWORD IS NOG NIET BEVEILIGD
   // $username = '';
   // $password = '';
   // $email = '';
@@ -50,12 +50,11 @@ try {
   // echo 'User Deleted';
 
   //$sql is hier $conn
-  //CREATE
+  //CREATE A POST
   //INSERT POST THROUGH CODE, THIS SHOULD HAPPEN; ECHO->POST ADDED AND IT SHOULD CREATE A NEW PAGE INSIDE THE DATABASE
 
   // $title = '';
   // $content = '';
-  // //maybe, every user gets his own author number, they fill that in and it'll show the same way as it shows the users username
   // $author = '';
 
   // $sql = 'INSERT INTO pages(title, content, author) VALUES(:title, :content, :author)';
