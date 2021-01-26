@@ -27,6 +27,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update</title>
+    <link rel="stylesheet" href='main_style.css'>
 </head>
 <body>
 <?php 
@@ -44,6 +45,7 @@ if (isset($_GET['id'])) {
         $stmt = $conn->prepare('UPDATE pages SET id = ?, content= ?, image = ?, title = ?, last_update = ? WHERE id = ?');
         $stmt->execute([$id, $content, $image, $title, $last_update, $_GET['id']]);
         $msg = 'Updated Successfully!';
+        echo "<a class='button' href='verzend.php'>Back</a>";
     }
     // Get the contact from the contacts table
     $stmt = $conn->prepare('SELECT * FROM pages WHERE id = ?');
@@ -53,7 +55,9 @@ if (isset($_GET['id'])) {
         exit('Post doesn\'t exist with that ID!');
     }
 } else {
-    exit('No ID specified!');
+    exit('Please specify the ID number in the search bar. Like this: to update the post with ID number 1 add ?id=1 at the end of the url. 
+    <br><br> The url should then look like this: localhost:8080/CMS/update.php?id=1
+    <br><br> You can find the ID number by going to the READ page and checking in the table');
 }
 ?>
 

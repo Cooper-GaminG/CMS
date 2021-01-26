@@ -30,6 +30,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read</title>
+    <link rel="stylesheet" href='main_style.css'>
 </head>
 <body>
 
@@ -48,11 +49,12 @@ $num_posts = $conn->query('SELECT COUNT(*) FROM pages')->fetchColumn();
 
 <div class="content read">
 	<h2>Read Posts</h2>
-	<a href="create.php" class="create-contact">Create Post</a>
+	<a class='button' href="create.php" class="create-contact">Create Post</a>
+    <a class='button' href="delete.php" class="create-contact">Delete Post</a>
 	<table>
         <thead>
             <tr>
-                <td>#</td>
+                <td>ID</td>
                 <td>Author</td>
                 <td>Title</td>
                 <td>Content</td>
@@ -89,8 +91,8 @@ $num_posts = $conn->query('SELECT COUNT(*) FROM pages')->fetchColumn();
 		<?php endif; ?>
 	</div>
 </div>
-
-
+<br><br><br>
+<a class='button' href='verzend.php'>Back</a>
 
 </body>
 </html>

@@ -41,3 +41,17 @@ a.button:hover{
     color: #ffffff;
     background-color: grey;
 }
+/* a.small_button{
+    padding: 5px;
+    border: 12px black;
+    margin: 5px;
+    margin-left: 100px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+a.small_button:hover{
+    text-decoration: underline;
+    color: #ffffff;
+    background-color: grey;
+} */
