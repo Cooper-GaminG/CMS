@@ -17,6 +17,8 @@
     echo $sql . "<br>" . $e->getMessage();
     } 
 
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -29,27 +31,26 @@
 <body>
 <?php 
 $msg = '';
-// Check if the contact id exists, for example update.php?id=1 will get the contact with the id of 1
+// Check if the post id exists, for example update.php?id=1 will get the post with the id of 1
 if (isset($_GET['id'])) {
     if (!empty($_POST)) {
         // This part is similar to the create.php, but instead we update a record and not insert
         $id = isset($_POST['id']) ? $_POST['id'] : NULL;
-        $author = isset($_POST['author']) ? $_POST['author'] : '';
+        $content = isset($_POST['content']) ? $_POST['content'] : '';
         $image = isset($_POST['image']) ? $_POST['image'] : '';
         $title = isset($_POST['title']) ? $_POST['title'] : '';
-        $post_date = isset($_POST['post_date']) ? $_POST['post_date'] : date('Y-m-d H:i:s');
-        $post_update = isset($_POST['post_update']) ? $_POST['post_update'] : date('Y-m-d H:i:s');
+        $last_update = isset($_POST['last_update']) ? $_POST['last_update'] : date('Y-m-d H:i:s');
         // Update the record
-        $stmt = $conn->prepare('UPDATE pages(id, author, image, title, post_date, last_update) SET id = ?, author = ?, image = ?, title = ?, post_date = ?, last_update = ? WHERE id = ?');
-        $stmt->execute([$id, $author, $title, $content, $post_date, $post_update, $image, $_GET['id']]);
+        $stmt = $conn->prepare('UPDATE pages SET id = ?, content= ?, image = ?, title = ?, last_update = ? WHERE id = ?');
+        $stmt->execute([$id, $content, $image, $title, $last_update, $_GET['id']]);
         $msg = 'Updated Successfully!';
     }
     // Get the contact from the contacts table
     $stmt = $conn->prepare('SELECT * FROM pages WHERE id = ?');
     $stmt->execute([$_GET['id']]);
-    $contact = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$contact) {
-        exit('Contact doesn\'t exist with that ID!');
+    $post = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$post) {
+        exit('Post doesn\'t exist with that ID!');
     }
 } else {
     exit('No ID specified!');
@@ -57,21 +58,44 @@ if (isset($_GET['id'])) {
 ?>
 
 <div class="content update">
-	<h2>Update Contact #<?=$contact['id']?></h2>
-    <form action="update.php?id=<?=$contact['id']?>" method="post">
+	<h2>Update post #<?=$post['id']?></h2>
+    <form action="update.php?id=<?=$post['id']?>" method="post">
         <label for="id">ID</label>
-        <label for="name">Name</label>
-        <input type="text" name="id" placeholder="1" value="<?=$contact['id']?>" id="id">
-        <input type="text" name="name" placeholder="John Doe" value="<?=$contact['name']?>" id="name">
-        <label for="email">Email</label>
-        <label for="phone">Phone</label>
-        <input type="text" name="email" placeholder="johndoe@example.com" value="<?=$contact['email']?>" id="email">
-        <input type="text" name="phone" placeholder="2025550143" value="<?=$contact['phone']?>" id="phone">
+        <input type="text" name="id" placeholder="1" value="<?=$post['id']?>" id="id">
+
         <label for="title">Title</label>
-        <label for="created">Created</label>
-        <input type="text" name="title" placeholder="Employee" value="<?=$contact['title']?>" id="title">
-        <input type="datetime-local" name="created" value="<?=date('Y-m-d\TH:i', strtotime($contact['created']))?>" id="created">
+        <input type="text" name="title" placeholder="Employee" value="<?=$post['title']?>" id="title">
+
+        <label for="name">Content</label>
+        <input type="text" name="content" placeholder="John Doe" value="<?=$post['content']?>" id="content">
+
+        <label for="email">Image</label>
+        <input type="text" name="image" placeholder="johndoe@example.com" value="<?=$post['image']?>" id="image">
+
+        <label for="created">Update Date</label>
+        <input type="datetime-local" name="created" value="<?=date('Y-m-d\TH:i', strtotime($post['created']))?>" id="created">
+
         <input type="submit" value="Update">
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- <label for="id">ID</label>
+        <input type="text" name="id" placeholder="26" value="auto" id="id">
+
+        <label for="name">Content</label>
+        <input type="text" name="content" placeholder="Content" id="content">
+
+        <label for="title">Image</label>
+        <input type="text" name="image" placeholder="Image" id="image">
+
+        <label for="created">Post Date</label>
+        <input type="datetime-local" name="post_date" value="<?=date('Y-m-d\TH:i')?>" id="post_date">
+
+        <label for="created">Post Update</label>
+        <input type="datetime-local" name="post_update" value="<?=date('Y-m-d\TH:i')?>" id="post_update">
+
+        <label for='content'>Title</Title></label>
+        <input type='text' name='title' placeholder='Title' id='title'>
+
+        <input type="submit" value="Create"> -->
     </form>
     <?php if ($msg): ?>
     <p><?=$msg?></p>

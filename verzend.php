@@ -66,7 +66,9 @@ if(isset($_POST["submit"])){
     }    
 ?>
 <a class='button' href='create.php'>Create Post</a>
+<a class='button' href='read.php'>Read Post</a>
 <a class='button' href='update.php'>Update Post</a>
+<a class='button' href='delete.php'>Delete Post</a>
 
 
 </body>

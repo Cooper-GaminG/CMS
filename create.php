@@ -41,11 +41,11 @@ if (!empty($_POST)) {
     $title = isset($_POST['title']) ? $_POST['title'] : '';
     $content = isset($_POST['content']) ? $_POST['content'] : '';
     $post_date = isset($_POST['post_date']) ? $_POST['post_date'] : date('Y-m-d H:i:s');
-    $post_update = isset($_POST['post_update']) ? $_POST['post_update'] : date('Y-m-d H:i:s');
+    $post_update = isset($_POST['last_update']) ? $_POST['last_update'] : date('Y-m-d H:i:s');
     $image = isset($_POST['image']) ? $_POST['image'] : '';
     // Insert new record into the pages table
-    $stmt = $conn->prepare('INSERT INTO pages(id, author, title, content, post_date, last_update, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
-    $stmt->execute([$id, $author, $title, $content, $post_date, $post_update, $image]);
+    $stmt = $conn->prepare('INSERT INTO pages(title, content, post_date, last_update) VALUES (?, ?, ?, ?)');
+    $stmt->execute([$title, $content, $post_date, $post_update]);
     // Output message
     $msg = 'Created Successfully!';
 }
@@ -59,8 +59,8 @@ if (!empty($_POST)) {
         <input type="text" name="id" placeholder="26" value="auto" id="id">
         <label for="name">Content</label>
         <input type="text" name="content" placeholder="Content" id="content">
-        <label for='content'>Author</label>
-        <input type='text' name='author' placeholder='username' id='author'>
+        <!-- <label for='content'>Author</label>
+        <input type='text' name='author' placeholder='username' id='author'> -->
         <label for="title">Image</label>
         <input type="text" name="image" placeholder="Image" id="image">
         <label for="created">Post Date</label>
@@ -75,7 +75,7 @@ if (!empty($_POST)) {
     <p><?=$msg?></p>
     <?php endif; ?>
 </div>
-
+<br>
 <a class='button' href='verzend.php'>Back</a>
 
 </body>
