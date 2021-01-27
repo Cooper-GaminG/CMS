@@ -48,8 +48,9 @@ $num_posts = $conn->query('SELECT COUNT(*) FROM pages')->fetchColumn();
 ?>
 
 <div class="content read">
-	<h2>Read Posts</h2>
+	<h2>All Posts</h2>
 	<a class='button' href="create.php" class="create-contact">Create Post</a>
+    <a class='button' href="update.php" class="create-contact">Update Post</a>
     <a class='button' href="delete.php" class="create-contact">Delete Post</a>
 	<table>
         <thead>

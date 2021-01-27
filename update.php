@@ -66,19 +66,19 @@ if (isset($_GET['id'])) {
     <form action="update.php?id=<?=$post['id']?>" method="post">
         <label for="id">ID</label>
         <input type="text" name="id" placeholder="1" value="<?=$post['id']?>" id="id">
-
+        <br><br>
         <label for="title">Title</label>
         <input type="text" name="title" placeholder="Employee" value="<?=$post['title']?>" id="title">
-
+        <br><br>
         <label for="name">Content</label>
         <input type="text" name="content" placeholder="John Doe" value="<?=$post['content']?>" id="content">
-
-        <label for="email">Image</label>
-        <input type="text" name="image" placeholder="johndoe@example.com" value="<?=$post['image']?>" id="image">
-
+        <br><br>
+        <!-- <label for="email">Image</label>
+        <input type="text" name="image" placeholder="image" value="<?=$post['image']?>" id="image">
+        <br><br> -->
         <label for="created">Update Date</label>
         <input type="datetime-local" name="created" value="<?=date('Y-m-d\TH:i', strtotime($post['created']))?>" id="created">
-
+        <br><br>
         <input type="submit" value="Update">
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         <!-- <label for="id">ID</label>

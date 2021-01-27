@@ -44,8 +44,8 @@ if (!empty($_POST)) {
     $post_update = isset($_POST['last_update']) ? $_POST['last_update'] : date('Y-m-d H:i:s');
     $image = isset($_POST['image']) ? $_POST['image'] : '';
     // Insert new record into the pages table
-    $stmt = $conn->prepare('INSERT INTO pages(title, content, post_date, last_update) VALUES (?, ?, ?, ?)');
-    $stmt->execute([$title, $content, $post_date, $post_update]);
+    $stmt = $conn->prepare('INSERT INTO pages(author, title, content, post_date, last_update) VALUES (?, ?, ?, ?, ?)');
+    $stmt->execute([1, $title, $content, $post_date, $post_update]);
     // Output message
     $msg = 'Created Successfully!';
 }
@@ -55,24 +55,21 @@ if (!empty($_POST)) {
 <div class="content update">
 	<h2>Create Post</h2>
     <form action="create.php" method="post">
-        <label for="id">ID</label>
-        <input type="text" name="id" placeholder="26" value="auto" id="id">
+        <!-- <label for="id">ID</label>
+        <input type="text" name="id" placeholder="26" value="auto" id="id"> -->
 
         <label for='content'>Title</Title></label>
         <input type='text' name='title' placeholder='Title' id='title'>
-
+        <br><br>
         <label for="name">Content</label>
         <input type="text" name="content" placeholder="Content" id="content">
-
-        <!-- <label for='content'>Author</label>
-        <input type='text' name='author' placeholder='username' id='author'> -->
-
+        <br><br>
         <label for="title">Image</label>
         <input type="text" name="image" placeholder="Image" id="image">
-
+        <br><br>
         <label for="created">Post Date</label>
         <input type="datetime-local" name="post_date" value="<?=date('Y-m-d\TH:i')?>" id="post_date">
-
+        <br><br>
         <label for="created">Post Update</label>
         <input type="datetime-local" name="post_update" value="<?=date('Y-m-d\TH:i')?>" id="post_update">
         

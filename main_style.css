@@ -41,6 +41,18 @@ a.button:hover{
     color: #ffffff;
     background-color: grey;
 }
+a.yesno{
+    text-decoration: underline;
+    color: black;
+    padding: 5px;
+    border: black solid 10px;
+
+}
+a.yesno:hover{
+    text-decoration: underline;
+    color: white;
+    background-color: black;
+}
 /* a.small_button{
     padding: 5px;
     border: 12px black;
