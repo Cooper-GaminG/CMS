@@ -33,9 +33,13 @@ if(isset($_POST["submit"])){
 
     $sql = 'INSERT INTO users(username, password, email, role) VALUES(:username, :password, :email, :role)';
     $stmt = $conn->prepare($sql);
+
+    $salt = ("TheBestSaltINTheWorldBroughtToYouByGordonRamsay");
+
+    $password = hash('sha256', $salt.$password);
+    
     $stmt->execute(['username' => $username, 'password' => $password, 'email' => $email, 'role' => $role]);
     
-      
 
    // echo "User successfully created";
 
